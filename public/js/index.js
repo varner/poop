@@ -269,7 +269,7 @@ function init() {
     tooltipClass: "tooltip"
   });
 
-  $( document ).keydown(function(e) {
+  /*$( document ).keydown(function(e) {
       var position = $( '#' + sessionId).position();
       switch(e.which) {
           case 37: // left
@@ -309,7 +309,7 @@ function init() {
           default: return; // exit this handler for other keys
       }
       e.preventDefault(); // prevent the default action (scroll / move caret)
-  });
+  });*/
 }
 
 $(document).on('ready', init);
