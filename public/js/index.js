@@ -293,9 +293,11 @@ function init() {
           break;
   
           case 39: // right
+          console.log("old: " + position.x );
             $('#' + sessionId).css({
               'left': (position.x + 10) + "px"
             });
+            console.log("new??: " + $( '#' + sessionId).position().x);
             sendMove();
           break;
   
