@@ -268,6 +268,46 @@ function init() {
   $( document ).tooltip({
     tooltipClass: "tooltip"
   });
+
+  $(document).keydown(function(e) {
+      var position = $( '#' + sessionId).position();
+      switch(e.which) {
+          case 37: // left
+            if (position.x > 10) {
+              $('#' + sessionId).css({
+                'left': (position.x - 10) + "px"
+              });
+            }
+            sendMove();
+          break;
+  
+          case 38: // up
+            if (position.y > 10) {
+              $('#' + sessionId).css({
+                'top': (position.y - 10) + "px"
+              });
+            }
+            sendMove();
+          break;
+  
+          case 39: // right
+              $('#' + sessionId).css({
+                'left': (position.x + 10) + "px"
+              });
+              sendMove();
+          break;
+  
+          case 40: // down
+            $('#' + sessionId).css({
+              'top': (position.y + 10) + "px"
+            });
+            sendMove();
+          break;
+  
+          default: return; // exit this handler for other keys
+      }
+      e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
 }
 
 $(document).on('ready', init);
