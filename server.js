@@ -38,8 +38,9 @@ var participants = [];
 //Server's IP address
 app.set("ipaddr", "127.0.0.1");
 
-//Server's port number
-app.set("port", 8080);
+//Server's port number listen to the port instead?
+// app.set("port", 8080);
+app.set("port", process.env.PORT || 3000);
 
 //Specify the views folder
 app.set("views", __dirname + "/views");
