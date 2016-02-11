@@ -1,0 +1,146 @@
+body {
+    padding: 3em;
+    font-family: 'Menlo', 'Courier New', monotype;
+    font-size: 1em;
+	display: inline-block;
+}
+
+textarea {
+    resize: none;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.topAligned {
+    vertical-align: top;
+}
+
+.human {
+	font-family: 'Menlo', 'Courier New', monotype;
+	width: 250px;
+	margin: 5px;
+	font-size: 10px;
+	position: absolute;
+	color: #000;
+	height: 300px;
+	background: url('../blobs/005.gif');
+	/*border: 1px solid black;*/
+}
+
+.human #user {
+	border-bottom: solid 2px #000;
+	margin-bottom: .5em;
+	font-weight: bold;
+	line-height: 1.2em;
+	text-align: center;
+	display: inline-block;
+}
+
+.poop {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+}
+
+#participants {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#field {
+	position: absolute;
+	left: 0;
+	top: 50px;
+	width: 3000px;
+	height: 3000px;
+}
+
+#inputting {
+	position: fixed;
+	width: 100%;
+	border-bottom: 2px solid black;
+	top: 0px;
+	left: 0px;
+	z-index: 999;
+	background: #FFF;
+	height: 50px;
+}
+
+#inputting #messageForm {
+	width: 100%;
+	padding: 5px;
+}
+
+#outgoingMessage {
+	width: 30em;
+	height: 1.2em;
+	border: 1px solid black;
+	text-align: middle;
+	font-size: 12px;
+	vertical-align:middle;
+	margin-top: -5px;
+    font-family: 'Menlo', 'Courier New', monotype;
+}
+
+#send {
+	background-color: #ccc;
+    color: #000;
+    font-family: 'Menlo', 'Courier New', monotype;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid black;
+    vertical-align:middle;
+	margin-top: -5px;
+}
+
+#send:hover {
+	background-color: #aaa;
+}
+
+input[type=text] {
+    font-family: 'Menlo', 'Courier New', monotype;
+	height: 1.2em;
+	border: 1px solid black;
+	text-align: middle;
+	font-size: 12px;
+
+}
+
+#naming {
+	padding: 10px;
+	line-height: 1.2em;
+	font-size: 12px;
+}
+
+#logo {
+	border: 2px solid black;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 2;
+	padding: 5px;
+}
+
+.tooltip {
+	padding: 5px;
+	border: 2px solid black;
+	z-index: 99;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+	background: #EEE;
+	border: 1px solid #DDD;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: #aaa;
+    border: 1px solid #AAA;
+}

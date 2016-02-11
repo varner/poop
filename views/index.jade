@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/jquery.qtip.css')
+    script(src='//code.jquery.com/jquery-1.11.0.min.js')
+    script(src='//code.jquery.com/ui/1.11.4/jquery-ui.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/index.js')
+    script(src='/js/jquery.qtip.min.js')
+    title POOPCHAT PRO 555
+  body
+    audio(preload="audio")#ping
+      source(src="ping.mp3" type="audio/mpeg")
+    div
+      div#inputting
+        span#naming ur name: 
+          input(type="text", value="unnamed")#name 
+        form#messageForm
+          textarea(placeholder="shout in the void", maxlength=200)#outgoingMessage
+          input(type="button", value="go", disabled=true)#send
+      div#field
+        div#messages
+        div#participants
+    div#logo
+      POOPCHAT POOPCHAT PRO
