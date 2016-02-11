@@ -270,42 +270,38 @@ function init() {
   });
 
   $( document ).keydown(function(e) {
-      console.log(sessionId);
       var position = $( '#' + sessionId).position();
-      console.log(position);
       switch(e.which) {
           case 37: // left
-            if (position.x > 10) {
-              console.log("old: " + position.x );
+            if (position.left > 10) {
+              console.log("old: " + position.top );
               $('#' + sessionId).css({
-                'left': (position.x - 10) + "px"
+                'left': (position.left - 10) + "px"
               });
-              console.log("new??: " + $( '#' + sessionId).position().x);
+              console.log("new??: " + $( '#' + sessionId).position().left);
               sendMove();
             }
           break;
   
           case 38: // up
-            if (position.y > 10) {
+            if (position.top > 10) {
               $('#' + sessionId).css({
-                'top': (position.y - 10) + "px"
+                'top': (position.top - 10) + "px"
               });
               sendMove();
             }
           break;
   
           case 39: // right
-          console.log("old: " + position.x );
             $('#' + sessionId).css({
-              'left': (position.x + 10) + "px"
+              'left': (position.left + 10) + "px"
             });
-            console.log("new??: " + $( '#' + sessionId).position().x);
             sendMove();
           break;
   
           case 40: // down
             $('#' + sessionId).css({
-              'top': (position.y + 10) + "px"
+              'top': (position.top + 10) + "px"
             });
             sendMove();
           break;
