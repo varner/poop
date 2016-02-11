@@ -272,6 +272,7 @@ function init() {
   $( document ).keydown(function(e) {
       console.log(sessionId);
       var position = $( '#' + sessionId).position();
+      console.log(position);
       switch(e.which) {
           case 37: // left
             if (position.x > 10) {
