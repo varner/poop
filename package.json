@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-express-socketio-chatroom",
+  "name": "poopchat-pro",
   "version": "1.0.0",
-  "description": "A simple chatroom",
+  "description": "a chatroom of poo",
   "keywords": [
     "express",
     "Node.js",
@@ -9,15 +9,13 @@
     "underscore",
     "chatroom"
   ],
-  "author": {
-    "name": "William Mora",
-    "email": "william.r.mora@gmail.com",
-    "url":  "http://www.williammora.com/"
+  "scripts": {
+    "start": "node server.js"
   },
-  "homepage": "http://www.williammora.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wmora/nodejs-express-socketio-chatroom.git"
+  "author": {
+    "name": "maddy varner",
+    "email": "maddyvarner@gmail.com",
+    "url":  "http://maddy.zone"
   },
   "engines": {
     "node": ">= 0.6.0",
