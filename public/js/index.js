@@ -269,17 +269,18 @@ function init() {
     tooltipClass: "tooltip"
   });
 
-  $(document).keydown(function(e) {
-      console.log("keymove");
+  $( document ).keydown(function(e) {
       var position = $( '#' + sessionId).position();
       switch(e.which) {
           case 37: // left
             if (position.x > 10) {
+              console.log("old: " + position.x );
               $('#' + sessionId).css({
                 'left': (position.x - 10) + "px"
               });
+              console.log("new??: " + $( '#' + sessionId).position().x);
+              sendMove();
             }
-            sendMove();
           break;
   
           case 38: // up
@@ -287,15 +288,15 @@ function init() {
               $('#' + sessionId).css({
                 'top': (position.y - 10) + "px"
               });
+              sendMove();
             }
-            sendMove();
           break;
   
           case 39: // right
-              $('#' + sessionId).css({
-                'left': (position.x + 10) + "px"
-              });
-              sendMove();
+            $('#' + sessionId).css({
+              'left': (position.x + 10) + "px"
+            });
+            sendMove();
           break;
   
           case 40: // down
