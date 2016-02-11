@@ -270,6 +270,7 @@ function init() {
   });
 
   $(document).keydown(function(e) {
+      console.log("keymove");
       var position = $( '#' + sessionId).position();
       switch(e.which) {
           case 37: // left
