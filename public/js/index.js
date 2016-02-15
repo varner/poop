@@ -49,6 +49,44 @@ function init() {
     $('[data-toggle="tooltip"]')
   }
 
+  function addPoop(data, index, array) {
+    var message = data.message;
+    var name = data.name;
+    var id = data.id;
+    var x = data.x;
+    var y = data.y;
+    var timestamp = data.timestamp;
+    $('#messages').append(
+      '<a href="#" data-toggle="tooltip" data-message="'
+      + data.message
+      + '" id="'
+      + timestamp.toString()
+      + '"><div class="poop"'
+      + 'id="'
+      + timestamp.toString()
+      + 'POOP"></div></a>');
+    $('#' + timestamp + "POOP").css({
+      'left': x + "px", 
+      'top': y + "px",
+      'background': "url('../poop/" + (lpad(timestamp % poops, 3)) + ".png')"
+    });
+
+    $('#' + timestamp).qtip({ 
+      content: {
+          attr: "data-message"// Tell qTip2 to look inside this attr for its content
+      },
+      position: {
+          my: 'bottom center',  // Position my top left...
+          at: 'top center', // at the bottom right of...
+          target: $('#' + timestamp + "POOP") // my target
+      },
+      style: {
+        classes: "qtip-light"
+      }
+    });
+    play_multi_sound("ping");
+  }
+
   /* all this other shite */
 
   var serverBaseUrl = document.domain;
@@ -109,6 +147,9 @@ function init() {
    */
   socket.on('newConnection', function (data) {
     updateParticipants(data.participants);
+    if ( $( ".poop" ).length < 20 ) {
+      data.cache.forEach(addPoop);
+    }
   });
 
   /*

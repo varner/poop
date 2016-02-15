@@ -33,6 +33,8 @@ var express = require("express")
  */
 var participants = [];
 
+var cache = [];
+
 /* Server config */
 
 //Server's IP address
@@ -91,6 +93,13 @@ app.post("/message", function(request, response) {
   //Let our chatroom know there was a new message
   io.sockets.emit("incomingMessage", {timestamp: timestamp, message: message, id: id, x: x, y: y});
 
+  // if more than 20 messages, pop oldest one from the back of the queue
+  if ( cache.length >= 20 ) {
+    cache.pop();
+  }
+  // push newest message to the front of the queue
+  cache.unshift({timestamp: timestamp, message: message, id: id, x: x, y: y});
+
   //Looks good, let the client know
   response.json(200, {message: "we did the thing i guess message sent"});
 
@@ -106,7 +115,7 @@ io.on("connection", function(socket){
    */
   socket.on("newUser", function(data) {
     participants.push({id: data.id, name: data.name, x: data.x, y: data.y});
-    io.sockets.emit("newConnection", {participants: participants});
+    io.sockets.emit("newConnection", {participants: participants, cache: cache});
   });
 
   /*
@@ -138,6 +147,6 @@ io.on("connection", function(socket){
 });
 
 //Start the http server at port and IP defined before/*
-http.listen(app.get("port"));/*, app.get("ipaddr")), function() {
+http.listen(app.get("port"));/*, app.get("ipaddr"), function() {
   console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
 });*/
